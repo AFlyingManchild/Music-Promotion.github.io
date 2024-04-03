@@ -8,7 +8,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa list!
 - [ ] can we use royalty free music?
 - [ ] make slider bar/song duration
 - [ ] make an exit button
-- [ ] make case study (visual aspect) (make it look nice, jsut draw shit)
+- [x] make case study (visual aspect) (make it look nice, jsut draw shit)
 - [ ] playlis and featur paeg uwu
 - [ ] good lawd im tired
 - [ ] ??????
