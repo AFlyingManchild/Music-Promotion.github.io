@@ -1,6 +1,9 @@
 //Global Variables
 int appWidth, appHeight;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
+float AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight;
+float PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight;
+float ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight;
 //
 void setup() {
   
@@ -20,18 +23,34 @@ void setup() {
   String displayInstructions = ( appWidth >= appHeight ) ? "GOOD SHIT" : "BRUH U DUMBASS TURN YO FUCKIN PHONE";
   println(displayInstructions);
   //
-  //Populate
+  //Population
   backgroundX = appWidth*0;
   backgroundY = appHeight*0;
   backgroundWidth = appWidth;
   backgroundHeight = appHeight;
+  AlbumCoverX = appWidth*25/100;
+  AlbumCoverY = appHeight*10/100;
+  AlbumCoverWidth = appWidth*48/100;
+  AlbumCoverHeight = appHeight*50/100;
+  PlayButtonX = appWidth*45/100;
+  PlayButtonY = appHeight*70/100;
+  PlayButtonWidth = appWidth*8/100;
+  PlayButtonHeight = appHeight*6/100;
+  ExitButtonX = appWidth*92/100;
+  ExitButtonY = appHeight*3/100;
+  ExitButtonWidth = appWidth*5/100;
+  ExitButtonHeight = appHeight*5/100;
+  
  
   //Layout DIVs
-  //rect(X, Y, width, height);
+  //rect(X, Y, Width, Height);
   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-  int centerX = appWidth*1/2;
-  int centerY = appHeight*1/2;
-  rect(centerX*1/2, centerY*1/2, appWidth*1/2, appHeight*1/2);
+  //int centerX = appWidth*1/2;
+  //int centerY = appHeight*1/2;
+  //rect(centerX*1/2, centerY*1/2, appWidth*1/2, appHeight*1/2);
+  rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
+  rect(PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
+  rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
 } //End setup
 //
 void draw() {
