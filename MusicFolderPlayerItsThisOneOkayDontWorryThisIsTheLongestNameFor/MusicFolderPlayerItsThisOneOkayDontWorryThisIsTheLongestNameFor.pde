@@ -6,9 +6,9 @@ float PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight;
 float ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight;
 float RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight;
 float NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight;
-//float PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight;
+float PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight;
 //float LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight;
-//float HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight;
+float HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight;
 //
 void setup() {
   
@@ -53,6 +53,14 @@ void setup() {
   RewindButtonY = appHeight*71/100;
   RewindButtonWidth = appWidth*6/100;
   RewindButtonHeight = appHeight*5/100;
+  PlaytimeBarX = appWidth*24/100;
+  PlaytimeBarY = appHeight*80/100;
+  PlaytimeBarWidth = appWidth*50/100;
+  PlaytimeBarHeight = appHeight*2/100;
+  HomeButtonX = appWidth*3/100;
+  HomeButtonY = appHeight*3/100;
+  HomeButtonWidth = appWidth*5/100;
+  HomeButtonHeight = appHeight*5/100;
  
   //Layout DIVs
   //rect(X, Y, Width, Height);
@@ -65,6 +73,8 @@ void setup() {
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
   rect(RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
   rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
+  rect(PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight);
+  rect(HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight);
 } //End setup
 //
 void draw() {
