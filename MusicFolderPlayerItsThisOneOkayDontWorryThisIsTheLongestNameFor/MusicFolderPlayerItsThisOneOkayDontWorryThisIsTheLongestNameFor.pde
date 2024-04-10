@@ -4,6 +4,11 @@ float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight;
 float PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight;
 float ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight;
+float RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight;
+float NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight;
+//float PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight;
+//float LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight;
+//float HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight;
 //
 void setup() {
   
@@ -40,7 +45,14 @@ void setup() {
   ExitButtonY = appHeight*3/100;
   ExitButtonWidth = appWidth*5/100;
   ExitButtonHeight = appHeight*5/100;
-  
+  NextButtonX = appWidth*55/100;
+  NextButtonY = appHeight*71/100;
+  NextButtonWidth = appWidth*6/100;
+  NextButtonHeight = appHeight*5/100;
+  RewindButtonX = appWidth*37/100;
+  RewindButtonY = appHeight*71/100;
+  RewindButtonWidth = appWidth*6/100;
+  RewindButtonHeight = appHeight*5/100;
  
   //Layout DIVs
   //rect(X, Y, Width, Height);
@@ -51,6 +63,8 @@ void setup() {
   rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
   rect(PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
+  rect(RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
+  rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
 } //End setup
 //
 void draw() {
