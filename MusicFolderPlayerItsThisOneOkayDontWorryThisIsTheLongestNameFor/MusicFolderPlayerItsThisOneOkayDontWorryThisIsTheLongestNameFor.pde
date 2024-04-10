@@ -7,12 +7,14 @@ float ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight;
 float RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight;
 float NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight;
 float PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight;
-//float LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight;
+float LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight;
 float HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight;
+//float SongTitleX, SongTitleY, SongTitleWidth, SongTitleHeight;
+float VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight;
 //
 void setup() {
   
-  println("Hello");
+  println("SUP LIL BITCH AWWW NOT YOUUU HAAHAHA");
   //Concatenation & Inspecting Variables with Character Escapes
   println("width: "+width+ "\tHeight"+height+ "\t\tDisplay Width"+displayWidth+ "\t\tDisplay Height"+displayHeight);
   //NULL: all values are NULL until size(), arithmetic errors
@@ -61,6 +63,14 @@ void setup() {
   HomeButtonY = appHeight*3/100;
   HomeButtonWidth = appWidth*5/100;
   HomeButtonHeight = appHeight*5/100;
+  LoopooLX = appWidth*65/100;
+  LoopooLY = appHeight*71/100;
+  LoopooLWidth = appWidth*6/100;
+  LoopooLHeight = appHeight*5/100;
+  VolumeButtonX = appWidth*80/100;
+  VolumeButtonY = appHeight*87/100;
+  VolumeButtonWidth = appWidth*13/100;
+  VolumeButtonHeight = appHeight*1/100;
  
   //Layout DIVs
   //rect(X, Y, Width, Height);
@@ -75,6 +85,8 @@ void setup() {
   rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
   rect(PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight);
   rect(HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight);
+  rect(LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight);
+  rect(VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight);
 } //End setup
 //
 void draw() {
