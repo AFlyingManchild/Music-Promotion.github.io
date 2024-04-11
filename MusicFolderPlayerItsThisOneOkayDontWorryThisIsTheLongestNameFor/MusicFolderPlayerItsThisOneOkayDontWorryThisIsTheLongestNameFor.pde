@@ -68,7 +68,7 @@ void setup() {
   LoopooLWidth = appWidth*6/100;
   LoopooLHeight = appHeight*5/100;
   VolumeButtonX = appWidth*80/100;
-  VolumeButtonY = appHeight*87/100;
+  VolumeButtonY = appHeight*81/100;
   VolumeButtonWidth = appWidth*13/100;
   VolumeButtonHeight = appHeight*1/100;
  
