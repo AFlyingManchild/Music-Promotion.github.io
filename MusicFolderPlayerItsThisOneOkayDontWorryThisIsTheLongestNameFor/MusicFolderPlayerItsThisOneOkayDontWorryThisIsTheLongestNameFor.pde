@@ -11,6 +11,8 @@ float LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight;
 float HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight;
 //float SongTitleX, SongTitleY, SongTitleWidth, SongTitleHeight;
 float VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight;
+float TotalSongTimeX, TotalSongTimeY, TotalSongTimeWidth, TotalSongTimeHeight;
+float TimeLeftX, TimeLeftY, TimeLeftWidth, TimeLeftHeight;
 //
 void setup() {
   
@@ -71,7 +73,15 @@ void setup() {
   VolumeButtonY = appHeight*81/100;
   VolumeButtonWidth = appWidth*13/100;
   VolumeButtonHeight = appHeight*1/100;
- 
+  TotalSongTimeX = appWidth*72/100;
+  TotalSongTimeY = appHeight*83/100;
+  TotalSongTimeWidth = 40;
+  TotalSongTimeHeight = 20;
+  TimeLeftX = appWidth*24/100;
+  TimeLeftY = appHeight*83/100;
+  TimeLeftWidth = 40;
+  TimeLeftHeight = 20;
+  
   //Layout DIVs
   //rect(X, Y, Width, Height);
   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
@@ -87,6 +97,9 @@ void setup() {
   rect(HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight);
   rect(LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight);
   rect(VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight);
+  rect(TotalSongTimeX, TotalSongTimeY, TotalSongTimeWidth, TotalSongTimeHeight);
+  rect(TimeLeftX, TimeLeftY, TimeLeftWidth, TimeLeftHeight);
+  
 } //End setup
 //
 void draw() {
