@@ -9,16 +9,18 @@ float NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight;
 float PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight;
 float LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight;
 float HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight;
-//float SongTitleX, SongTitleY, SongTitleWidth, SongTitleHeight;
+float SongTitleX, SongTitleY, SongTitleWidth, SongTitleHeight;
 float VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight;
 float TotalSongTimeX, TotalSongTimeY, TotalSongTimeWidth, TotalSongTimeHeight;
 float TimeLeftX, TimeLeftY, TimeLeftWidth, TimeLeftHeight;
+float AudioIconX, AudioIconY, AudioIconSize;
+float AuthorNameX, AuthorNameY, AuthorNameWidth, AuthorNameHeight;
 //
 void setup() {
   
   println("SUP LIL BITCH AWWW NOT YOUUU HAAHAHA");
   //Concatenation & Inspecting Variables with Character Escapes
-  println("width: "+width+ "\tHeight"+height+ "\t\tDisplay Width"+displayWidth+ "\t\tDisplay Height"+displayHeight);
+  println("Width: "+width+ "\tHeight: "+height+ "\t\tDisplay Width: "+displayWidth+ "\t\tDisplay Height: "+displayHeight);
   //NULL: all values are NULL until size(), arithmetic errors
   println("Example Formula: add 1 to the width", width+1);
   //
@@ -81,6 +83,17 @@ void setup() {
   TimeLeftY = appHeight*83/100;
   TimeLeftWidth = 40;
   TimeLeftHeight = 20;
+  AudioIconX = appWidth*78/100;
+  AudioIconY = appHeight*80/100;
+  AudioIconSize = 25;
+  SongTitleX = appWidth*25/100;
+  SongTitleY = appHeight*61/100;
+  SongTitleWidth = appWidth*1/5;
+  SongTitleHeight = 32;
+  AuthorNameX = appWidth*1/4;
+  AuthorNameY = appHeight*65/100;
+  AuthorNameWidth = appWidth*1/7;
+  AuthorNameHeight = 20;
   
   //Layout DIVs
   //rect(X, Y, Width, Height);
@@ -99,6 +112,9 @@ void setup() {
   rect(VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight);
   rect(TotalSongTimeX, TotalSongTimeY, TotalSongTimeWidth, TotalSongTimeHeight);
   rect(TimeLeftX, TimeLeftY, TimeLeftWidth, TimeLeftHeight);
+  square(AudioIconX, AudioIconY, AudioIconSize);
+  rect(SongTitleX, SongTitleY, SongTitleWidth, SongTitleHeight);
+  rect(AuthorNameX, AuthorNameY, AuthorNameWidth, AuthorNameHeight);
   
 } //End setup
 //
