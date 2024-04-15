@@ -15,6 +15,10 @@ float TotalSongTimeX, TotalSongTimeY, TotalSongTimeWidth, TotalSongTimeHeight;
 float TimeLeftX, TimeLeftY, TimeLeftWidth, TimeLeftHeight;
 float AudioIconX, AudioIconY, AudioIconSize;
 float AuthorNameX, AuthorNameY, AuthorNameWidth, AuthorNameHeight;
+float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeight;
+//
+color BackgroundColour, DarkBackground;
+color WhiteBackground;
 //
 void setup() {
   
@@ -94,6 +98,10 @@ void setup() {
   AuthorNameY = appHeight*65/100;
   AuthorNameWidth = appWidth*1/7;
   AuthorNameHeight = 20;
+  SettingsButtonX = appWidth*3/100;
+  SettingsButtonY = appHeight*12/100;
+  SettingsButtonWidth = appWidth*5/100;
+  SettingsButtonHeight = appHeight*5/100;
   
   //Layout DIVs
   //rect(X, Y, Width, Height);
@@ -101,24 +109,39 @@ void setup() {
   //int centerX = appWidth*1/2;
   //int centerY = appHeight*1/2;
   //rect(centerX*1/2, centerY*1/2, appWidth*1/2, appHeight*1/2);
+  
   rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
   rect(PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
+  
   rect(RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
   rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
   rect(PlaytimeBarX, PlaytimeBarY, PlaytimeBarWidth, PlaytimeBarHeight);
+  
   rect(HomeButtonX, HomeButtonY, HomeButtonWidth, HomeButtonHeight);
   rect(LoopooLX, LoopooLY, LoopooLWidth, LoopooLHeight);
   rect(VolumeButtonX, VolumeButtonY, VolumeButtonWidth, VolumeButtonHeight);
+  
   rect(TotalSongTimeX, TotalSongTimeY, TotalSongTimeWidth, TotalSongTimeHeight);
   rect(TimeLeftX, TimeLeftY, TimeLeftWidth, TimeLeftHeight);
   square(AudioIconX, AudioIconY, AudioIconSize);
+  
   rect(SongTitleX, SongTitleY, SongTitleWidth, SongTitleHeight);
   rect(AuthorNameX, AuthorNameY, AuthorNameWidth, AuthorNameHeight);
+  rect(SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeight);
+  
+  //Var population
+  DarkBackground = 0; //greyscale, 0 is the same as #000000, saves resources >v'
+  WhiteBackground = 255;
+  if ( hour () >=9 && hour() <=17 ) BackgroundColour = WhiteBackground;
+  if ( hour () <9 && hour() >17 ) BackgroundColour = DarkBackground;
+  if ( hour () >=9 && hour() <=17 ) { BackgroundColour = WhiteBackground; } else { BackgroundColour = DarkBackground; };
   
 } //End setup
 //
 void draw() {
+  background(BackgroundColour); //greyscale uwu
+  //rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
 } //End draw
 //
 void keyPressed() {
