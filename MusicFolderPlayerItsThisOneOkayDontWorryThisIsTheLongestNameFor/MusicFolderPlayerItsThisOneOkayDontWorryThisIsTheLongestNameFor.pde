@@ -17,8 +17,8 @@ float AudioIconX, AudioIconY, AudioIconSize;
 float AuthorNameX, AuthorNameY, AuthorNameWidth, AuthorNameHeight;
 float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeight;
 //
-color BackgroundColour, DarkBackground;
-color WhiteBackground;
+color BackgroundColour, DarkBackground, WhiteBackground;
+boolean WhiteMode=false;
 //
 void setup() {
   
@@ -133,6 +133,7 @@ void setup() {
   //Var population
   DarkBackground = 0; //greyscale, 0 is the same as #000000, saves resources >v'
   WhiteBackground = 255;
+  WhiteMode = true;
   if ( hour () >=9 && hour() <=17 ) BackgroundColour = WhiteBackground;
   if ( hour () <9 && hour() >17 ) BackgroundColour = DarkBackground;
   if ( hour () >=9 && hour() <=17 ) { BackgroundColour = WhiteBackground; } else { BackgroundColour = DarkBackground; };
