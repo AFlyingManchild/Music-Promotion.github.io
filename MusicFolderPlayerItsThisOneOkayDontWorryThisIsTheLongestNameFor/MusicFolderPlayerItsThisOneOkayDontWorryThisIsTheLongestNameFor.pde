@@ -1,4 +1,4 @@
-//Global Variables
+//Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
 int appWidth, appHeight;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight;
@@ -18,7 +18,9 @@ float AuthorNameX, AuthorNameY, AuthorNameWidth, AuthorNameHeight;
 float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeight;
 //
 color BackgroundColour, DarkBackground, WhiteBackground;
-boolean WhiteMode=false;
+color ForegroundColour;
+color White=255, Yellow=#FFFF00, Black=0;
+boolean WhiteMode=true;
 //
 void setup() {
   
@@ -133,22 +135,37 @@ void setup() {
   //Var population
   DarkBackground = 0; //greyscale, 0 is the same as #000000, saves resources >v'
   WhiteBackground = 255;
-  WhiteMode = true; //must ask to see THE LIGHT-blue lgiht-
+  White = 255;
+  Yellow = #FFFF00;
+  Black = 0;
+  //WhiteMode = true; //must ask to see THE LIGHT-blue lgiht-
   if ( hour () >=9 && hour() <=17 ) BackgroundColour = WhiteBackground;
   if ( hour () <9 && hour() >17 ) BackgroundColour = DarkBackground;
-  if ( WhiteMode == true && hour() <=17 ) { BackgroundColour = WhiteBackground; } else { BackgroundColour = DarkBackground; };
+  if ( WhiteMode == true && hour() <=17 )
+  { BackgroundColour = WhiteBackground; 
+  ForegroundColour = #FFFFFF;}
+  else { BackgroundColour = DarkBackground;
+  ForegroundColour = #FFFF00;}; //yellow uwu
   
 } //End setup
 //
 void draw() {
   background(BackgroundColour); //greyscale uwu
-  //rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
+  fill(ForegroundColour);
+  rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
 } //End draw
 //
-void keyPressed() {
+void keyPressed() { //Listener
+  if (key=='Q' || key=='q') exit();
+  if  (key==CODED && keyCode==DOWN) exit();
 } //End keyPressed
+//ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight
 //
-void mousePressed() {
+void mousePressed() { //Listener 2: the Venting Strikes Back
+  if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight );
+  {
+    exit();
+  }
 } //End mousePressed
 //
 // End MAIN Program
