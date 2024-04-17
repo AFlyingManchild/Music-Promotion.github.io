@@ -19,7 +19,7 @@ float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeigh
 //
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
-color White=255, Yellow=#FFFF00, Black=0;
+color White=255, Yellow=#FFFF00, Black=0, Purple=#FF00FF;
 boolean WhiteMode=false;
 //
 void setup() {
@@ -141,7 +141,7 @@ void setup() {
   //WhiteMode = true; //must ask to see THE LIGHT-blue lgiht-
   if ( hour () >=9 && hour() <=17 ) BackgroundColour = WhiteBackground;
   if ( hour () <9 && hour() >17 ) BackgroundColour = DarkBackground;
-  if ( WhiteMode == false && hour() <=17 )
+  if ( WhiteMode == true && hour () >=9 && hour() <=17 )
   { BackgroundColour = WhiteBackground; 
   ForegroundColour = #FFFFFF;}
   else { BackgroundColour = DarkBackground;
@@ -152,7 +152,13 @@ void setup() {
 void draw() {
   background(BackgroundColour); //greyscale uwu
   fill(ForegroundColour);
+  //
+  //Exit button
+  fill(Purple);
+  if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight ) fill(Yellow);
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
+  fill(ForegroundColour);
+  println(mouseX, mouseY);
 } //End draw
 //
 void keyPressed() { //Listener
