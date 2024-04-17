@@ -20,7 +20,7 @@ float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeigh
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
 color White=255, Yellow=#FFFF00, Black=0;
-boolean WhiteMode=true;
+boolean WhiteMode=false;
 //
 void setup() {
   
@@ -141,7 +141,7 @@ void setup() {
   //WhiteMode = true; //must ask to see THE LIGHT-blue lgiht-
   if ( hour () >=9 && hour() <=17 ) BackgroundColour = WhiteBackground;
   if ( hour () <9 && hour() >17 ) BackgroundColour = DarkBackground;
-  if ( WhiteMode == true && hour() <=17 )
+  if ( WhiteMode == false && hour() <=17 )
   { BackgroundColour = WhiteBackground; 
   ForegroundColour = #FFFFFF;}
   else { BackgroundColour = DarkBackground;
@@ -158,6 +158,7 @@ void draw() {
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
   if  (key==CODED && keyCode==DOWN) exit();
+  if (key=='W' || key=='w') ;
 } //End keyPressed
 //ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight
 //
