@@ -21,6 +21,8 @@
 int appWidth = displayWidth;
 int appHeight = displayHeight;
 float titleX, titleY, titleWidth, titleHeight;
+PFont titleFont;
+String title=("EXODIA, OBLITERATE!");
 //
 //Display Geometry, Orientation: Landscape, Portrait, Square
 fullScreen();
@@ -36,10 +38,17 @@ titleWidth = appWidth*75/100;
 titleHeight = appHeight*1/8;
 //
 //Single Executed code: font SETUP
+//fonts from OS (operationg system)
+//String[] fontList = PFont.list();
+//printArray(fontList); //lists all fonts on OS
+titleFont = createFont("Papyrus", 35);
+//Tools -> create font -> find font u wanna use -> size field -> DONT PRESS OK IT WILL CRASH THEReS A KNOWN BUG
 //
 //DIVs and rect()s: rect(X, Y, Width, Height);
 rect(titleX, titleY, titleWidth, titleHeight);
 //rect(footerX, footerY, footerWidth, footerHeight); //footer
 //
 //Repeated code: draw()ing text
+textFont(titleFont, 20);
+text(title, titleX, titleY, titleWidth, titleHeight);
 //void setup () {};
