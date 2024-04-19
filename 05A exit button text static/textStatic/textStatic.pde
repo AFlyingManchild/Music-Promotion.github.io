@@ -1,29 +1,19 @@
 /*
  - code single and multiple executed (?????)
- - they say my hungers a problem,
- they tell me to curb my appetite
- they say i cant keep myself from trying
- a bite of every plate in sight
- 
- they worship patience, a virtue
- oh, they tell me gluttony's a sin
- but my desire is bottomless
- I WANNA SLIT YOUR THRAT AND EAT TILL I GET SICK!
- 
- The slaughter's on
- I'd love to see you come undone
- Unsatisfied, until I've got you flayed alive!
- So grab a plate, have a taste!
- 
 */
 //
 //Global Variables
 int appWidth = displayWidth;
 int appHeight = displayHeight;
+int size;
+color purple=#FF00FF, yellow=#FFFF00;
 float titleX, titleY, titleWidth, titleHeight;
+float threatX, threatY, threatWidth, threatHeight;
 PFont titleFont;
-String title=("EXODIA, OBLITERATE!");
-//
+PFont threatFont;
+String title="I'VE MADE YOU SOME SPAGHETTI TO HELP YOU WITH YOUR STOMACH ACHE!";
+String threat="I am going to explode your lawn.";
+
 //Display Geometry, Orientation: Landscape, Portrait, Square
 fullScreen();
 //
@@ -36,12 +26,17 @@ titleX = appWidth*1/8;
 titleY = appHeight*1/16;
 titleWidth = appWidth*75/100;
 titleHeight = appHeight*1/8;
+threatX = appWidth*1/8;
+threatY = appHeight*3/4;
+threatWidth = appWidth*3/4;
+threatHeight = appHeight*1/8;
 //
 //Single Executed code: font SETUP
 //fonts from OS (operationg system)
-//String[] fontList = PFont.list();
-//printArray(fontList); //lists all fonts on OS
-titleFont = createFont("Papyrus", 35);
+String[] fontList = PFont.list();
+printArray(fontList); //lists all fonts on OS
+size = 32;
+titleFont = createFont("Papyrus", size);
 //Tools -> create font -> find font u wanna use -> size field -> DONT PRESS OK IT WILL CRASH THEReS A KNOWN BUG
 //
 //DIVs and rect()s: rect(X, Y, Width, Height);
@@ -49,6 +44,19 @@ rect(titleX, titleY, titleWidth, titleHeight);
 //rect(footerX, footerY, footerWidth, footerHeight); //footer
 //
 //Repeated code: draw()ing text
-textFont(titleFont, 20);
+//INK
+fill(purple);
+textAlign(CENTER, CENTER); //align text x and y, look at processing.org/reference. 
+size = 45;
+//Values: LEFT, CENTER and RIGHT. and TOP, CENTER, BOTTOM and BASELINE.
+textFont(titleFont, size);
 text(title, titleX, titleY, titleWidth, titleHeight);
+//
+size = 45;
+threatFont = createFont("Perpetua", size);
+rect(threatX, threatY, threatWidth, threatHeight);
+textAlign(CENTER, CENTER);
+fill(yellow);
+textFont(threatFont, size);
+text(threat, threatX, threatY, threatWidth, threatHeight);
 //void setup () {};
