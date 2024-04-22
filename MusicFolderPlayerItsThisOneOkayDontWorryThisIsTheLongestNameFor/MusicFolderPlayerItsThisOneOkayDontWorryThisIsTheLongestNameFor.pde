@@ -1,5 +1,6 @@
 //Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
 int appWidth, appHeight;
+int size;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight;
 float PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight;
@@ -20,6 +21,9 @@ float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeigh
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
 color White=255, Yellow=#FFFF00, Black=0, Purple=#FF00FF;
+color Red=#FF0000;
+PFont ExitFont;
+String Exit="Exit";
 boolean WhiteMode=false;
 //
 void setup() {
@@ -39,6 +43,8 @@ void setup() {
   //Display Geometry: Landscape, Portait, Square
   String displayInstructions = ( appWidth >= appHeight ) ? "GOOD SHIT" : "BRUH U DUMBASS TURN YO FUCKIN PHONE";
   println(displayInstructions);
+  size = 32;
+  ExitFont = createFont("ComicSansMS", size);
   //
   //Population
   backgroundX = appWidth*0;
@@ -160,17 +166,16 @@ void draw() {
   fill(ForegroundColour);
   println(mouseX, mouseY);
   rect(ExitButtonX+ExitButtonWidth*1/8, ExitButtonY+ExitButtonHeight*1/8, ExitButtonWidth*6/8, ExitButtonHeight*6/8);
-  fill(Green);
-  textAlign(CENTER. CENTER);
+  fill(Red);
+  textAlign(CENTER, CENTER);
   size = 45;
   textFont(ExitFont, size);
-  text(
+  text(Exit, ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
 } //End draw
 //
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
-  if  (key==CODED && keyCode==DOWN) exit();
-  if (key=='W' || key=='w') ;
+  if (key=='W' || key=='w');
 } //End keyPressed
 //ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight
 //
@@ -179,6 +184,7 @@ void mousePressed() { //Listener 2: the Venting Strikes Back
   {
     exit();
   }
-} //End mousePressed
+}
+ //End mousePressed
 //
 // End MAIN Program
