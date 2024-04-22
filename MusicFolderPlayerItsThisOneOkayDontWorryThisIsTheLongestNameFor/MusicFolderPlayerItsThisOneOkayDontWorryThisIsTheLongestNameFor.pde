@@ -157,9 +157,14 @@ void draw() {
   fill(Purple);
   if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight ) fill(Yellow);
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
-  rect(ExitButtonX+ExitButtonWidth*1/8, ExitButtonY+ExitButtonHeight*1/8, ExitButtonWidth*6/8, ExitButtonHeight*6/8);
   fill(ForegroundColour);
   println(mouseX, mouseY);
+  rect(ExitButtonX+ExitButtonWidth*1/8, ExitButtonY+ExitButtonHeight*1/8, ExitButtonWidth*6/8, ExitButtonHeight*6/8);
+  fill(Green);
+  textAlign(CENTER. CENTER);
+  size = 45;
+  textFont(ExitFont, size);
+  text(
 } //End draw
 //
 void keyPressed() { //Listener
