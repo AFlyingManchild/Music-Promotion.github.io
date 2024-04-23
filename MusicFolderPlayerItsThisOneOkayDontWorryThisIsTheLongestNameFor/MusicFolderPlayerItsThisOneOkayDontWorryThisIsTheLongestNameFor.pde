@@ -64,14 +64,14 @@ void setup() {
   String extension = ".mp3";
   String ExitButtonSound = "Straw Squeak.mp3";
   String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Sound FX/Straw Squeak.mp3"; //Relative Pathway
-  print(pathwaySoundEffects+ExitButtonSound+extension);
+  //println(pathwaySoundEffects+ExitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects+ExitButtonSound+extension); //absolute path
-  println(path);
-  //soundEffect1 = minim.loadFile(path);
+  //println(path);
+  soundEffects1 = minim.loadFile( path );
   //playList1 = minim.loadFile( path );
   //
   size = 32;
-  ExitFont = createFont("ComicSansMS", size);
+  ExitFont = createFont("ComicSans", size);
   //
   //Population
   backgroundX = appWidth*0;
@@ -179,7 +179,8 @@ void setup() {
   ForegroundColour = #FFFFFF;}
   else { BackgroundColour = DarkBackground;
   ForegroundColour = #FFFF00;}; //yellow uwu
-  
+  //
+  soundEffects1.loop(0);
 } //End setup
 //
 void draw() {
