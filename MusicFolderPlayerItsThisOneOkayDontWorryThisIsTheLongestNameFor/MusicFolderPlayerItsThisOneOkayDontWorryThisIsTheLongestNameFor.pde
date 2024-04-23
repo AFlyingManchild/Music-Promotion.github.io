@@ -1,4 +1,20 @@
+//YIPPEEEEEEEEEE
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+/*
+Library: sketch > import library > add libary > minim
+support website: https://code.compartmental.net/minim/
+loop: https://code.compartmental.net/minim/audioplayer_method_loop.html
+*/
 //Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
+Minim minim; //creates object to add all functions
+AudioPlayer soundEffects1;
+AudioPlayer playList1; //creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
+//
 int appWidth, appHeight;
 int size;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
@@ -43,6 +59,17 @@ void setup() {
   //Display Geometry: Landscape, Portait, Square
   String displayInstructions = ( appWidth >= appHeight ) ? "GOOD SHIT" : "BRUH U DUMBASS TURN YO FUCKIN PHONE";
   println(displayInstructions);
+  //
+  minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
+  String extension = ".mp3";
+  String ExitButtonSound = "Straw Squeak.mp3";
+  String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Sound FX/Straw Squeak.mp3"; //Relative Pathway
+  print(pathwaySoundEffects+ExitButtonSound+extension);
+  String path = sketchPath(pathwaySoundEffects+ExitButtonSound+extension); //absolute path
+  println(path);
+  //soundEffect1 = minim.loadFile(path);
+  //playList1 = minim.loadFile( path );
+  //
   size = 32;
   ExitFont = createFont("ComicSansMS", size);
   //
@@ -160,15 +187,20 @@ void draw() {
   fill(ForegroundColour);
   //
   //Exit button
+  //fill(Purple);
+  //if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight ) fill(Yellow);
   fill(Purple);
-  if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight ) fill(Yellow);
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
-  fill(ForegroundColour);
-  println(mouseX, mouseY);
-  rect(ExitButtonX+ExitButtonWidth*1/8, ExitButtonY+ExitButtonHeight*1/8, ExitButtonWidth*6/8, ExitButtonHeight*6/8);
+  if (mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight) {
+  fill (Yellow);
+  rect(ExitButtonX+ExitButtonWidth*1/7, ExitButtonY+ExitButtonHeight*1/7, ExitButtonWidth*5/7, ExitButtonHeight*5/7);
+} else {
+  fill(Purple);
+};
   fill(Red);
+  println(mouseX, mouseY);
   textAlign(CENTER, CENTER);
-  size = 45;
+  size = 32;
   textFont(ExitFont, size);
   text(Exit, ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
 } //End draw
