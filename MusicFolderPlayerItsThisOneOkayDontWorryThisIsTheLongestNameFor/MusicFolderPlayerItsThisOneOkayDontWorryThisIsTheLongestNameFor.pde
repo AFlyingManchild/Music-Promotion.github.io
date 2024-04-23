@@ -180,7 +180,6 @@ void setup() {
   else { BackgroundColour = DarkBackground;
   ForegroundColour = #FFFF00;}; //yellow uwu
   //
-  soundEffects1.loop(0);
 } //End setup
 //
 void draw() {
@@ -215,6 +214,8 @@ void keyPressed() { //Listener
 void mousePressed() { //Listener 2: the Venting Strikes Back
   if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight );
   {
+      soundEffects1.loop(0);
+
     exit();
   }
 }
