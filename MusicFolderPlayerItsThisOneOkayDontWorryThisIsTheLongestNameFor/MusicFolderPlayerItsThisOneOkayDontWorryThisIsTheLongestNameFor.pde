@@ -66,7 +66,7 @@ void setup() {
   String ExitButtonSound = "StrawSqueak.mp3";
   String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   //println(pathwaySoundEffects+ExitButtonSound+extension);
-  String path = sketchPath(pathwaySoundEffects+ExitButtonSound+extension); //absolute path
+  String path = sketchPath(pathwaySoundEffects + ExitButtonSound + extension); //absolute path
   //println(path);
   soundEffects1 = minim.loadFile( path );
   //playList1 = minim.loadFile( path );
@@ -219,13 +219,5 @@ void mousePressed() { //Listener 2: the Venting Strikes Back
   }
 }
 //End mousePressed
-void soundEffect_1() {
-  int loopOnce = 0;
-  int timeForSoundEffect1 = 2650; //parameter in milliseconds
-  soundEffects1.loop(loopOnce);
-  delay(timeForSoundEffect1); //in milliseconds
-  exit();
-}
- //End soundEffect_1
 //
 // End MAIN Program
