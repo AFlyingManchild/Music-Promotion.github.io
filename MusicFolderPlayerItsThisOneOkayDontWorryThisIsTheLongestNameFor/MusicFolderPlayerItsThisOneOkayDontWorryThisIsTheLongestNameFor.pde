@@ -38,9 +38,11 @@ float SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeigh
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
 color White=255, Yellow=#FFFF00, Black=0, Purple=#FF00FF;
-color Red=#FF0000;
+color Red=#FF0000, Green=#00FF00, Cyan=#00FFFF, Blue=#0000FF;
 PFont ExitFont;
+PFont PlayFont;
 String Exit="Exit";
+String Play="Start";
 boolean WhiteMode=false;
 //
 void setup() {
@@ -63,7 +65,7 @@ void setup() {
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   String extension = ".mp3";
-  String ExitButtonSound = "StrawSqueak.mp3";
+  String ExitButtonSound = "StrawSqueak";
   String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   //println(pathwaySoundEffects+ExitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects + ExitButtonSound + extension); //absolute path
@@ -73,6 +75,7 @@ void setup() {
   //
   size = 32;
   ExitFont = createFont("ComicSansMS", size);
+  PlayFont = createFont("Arial", size);
   //
   //Population
   backgroundX = appWidth*0;
@@ -204,6 +207,21 @@ void draw() {
   size = 32;
   textFont(ExitFont, size);
   text(Exit, ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
+  //
+  fill(BackgroundColour);
+  fill(Cyan);
+  rect(PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
+  if(mouseX>PlayButtonX && mouseX<PlayButtonX+PlayButtonWidth && mouseY>PlayButtonY && mouseY<PlayButtonY+PlayButtonHeight) {
+  fill(Green);
+  rect(PlayButtonX+PlayButtonWidth*1/7, PlayButtonY+PlayButtonHeight*1/7, PlayButtonWidth*3/4, PlayButtonHeight*3/4);
+} else {
+  fill(Cyan);
+};
+  fill(Purple);
+  textAlign(CENTER, CENTER);
+  size = 32;
+  textFont(PlayFont, size);
+  text(Play, PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
 } //End draw
 //
 void keyPressed() { //Listener
