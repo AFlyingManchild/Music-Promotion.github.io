@@ -9,6 +9,7 @@ import ddf.minim.ugens.*;
 Library: sketch > import library > add libary > minim
 support website: https://code.compartmental.net/minim/
 loop: https://code.compartmental.net/minim/audioplayer_method_loop.html
+loop(0) seems best for sound effects
 */
 //Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
 Minim minim; //creates object to add all functions
@@ -62,8 +63,8 @@ void setup() {
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   String extension = ".mp3";
-  String ExitButtonSound = "Straw Squeak.mp3";
-  String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Sound FX/Straw Squeak.mp3"; //Relative Pathway
+  String ExitButtonSound = "StrawSqueak.mp3";
+  String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   //println(pathwaySoundEffects+ExitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects+ExitButtonSound+extension); //absolute path
   //println(path);
@@ -71,7 +72,7 @@ void setup() {
   //playList1 = minim.loadFile( path );
   //
   size = 32;
-  ExitFont = createFont("ComicSans", size);
+  ExitFont = createFont("ComicSansMS", size);
   //
   //Population
   backgroundX = appWidth*0;
@@ -214,11 +215,17 @@ void keyPressed() { //Listener
 void mousePressed() { //Listener 2: the Venting Strikes Back
   if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight );
   {
-      soundEffects1.loop(0);
-
-    exit();
+    soundEffect_1();
   }
 }
- //End mousePressed
+//End mousePressed
+void soundEffect_1() {
+  int loopOnce = 0;
+  int timeForSoundEffect1 = 2650; //parameter in milliseconds
+  soundEffects1.loop(loopOnce);
+  delay(timeForSoundEffect1); //in milliseconds
+  exit();
+}
+ //End soundEffect_1
 //
 // End MAIN Program
