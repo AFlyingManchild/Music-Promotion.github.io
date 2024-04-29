@@ -232,9 +232,9 @@ void draw() {
   fill(BackgroundColour);
   fill(Cyan);
   rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
-  if(mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<NextButtonY+NextButtonHeight) {
+  if(mouseX>NextButtonX && mouseX<NextButtonX+NextButtonWidth && mouseY>NextButtonY && mouseY<NextButtonY+NextButtonHeight) {
     fill(Green);
-    rect(NextButtonX+NextButtonWidth*1/8, NextButtonY+NextButtonHeight*1/8, NextButtonWidth*1/2, NextButtonHeight*1/2);
+    rect(NextButtonX+NextButtonWidth*1/7, NextButtonY+NextButtonHeight*1/7, NextButtonWidth*3/4, NextButtonHeight*3/4);
   } else {
     fill(Cyan);
   };
@@ -246,7 +246,7 @@ void draw() {
   //
   fill(Cyan);
   rect(RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
-  if(mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<RewindButtonY+RewindButtonHeight) {
+  if(mouseX>RewindButtonX && mouseX<RewindButtonX+RewindButtonWidth && mouseY>RewindButtonY && mouseY<RewindButtonY+RewindButtonHeight) {
     fill(Green);
     rect(RewindButtonX+RewindButtonWidth*1/7, RewindButtonY+RewindButtonHeight*1/7, RewindButtonWidth*3/4, RewindButtonHeight*3/4);
   } else {
