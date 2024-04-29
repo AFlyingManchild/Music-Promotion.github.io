@@ -41,8 +41,12 @@ color White=255, Yellow=#FFFF00, Black=0, Purple=#FF00FF;
 color Red=#FF0000, Green=#00FF00, Cyan=#00FFFF, Blue=#0000FF;
 PFont ExitFont;
 PFont PlayFont;
+PFont NextFont;
+PFont BackFont;
 String Exit="Exit";
 String Play="Start";
+String Next="Next";
+String Back="Rewind";
 boolean WhiteMode=false;
 //
 void setup() {
@@ -76,6 +80,8 @@ void setup() {
   size = 32;
   ExitFont = createFont("ComicSansMS", size);
   PlayFont = createFont("Arial", size);
+  NextFont = createFont("Onyx", size);
+  BackFont = createFont("Onyx", size);
   //
   //Population
   backgroundX = appWidth*0;
@@ -222,6 +228,35 @@ void draw() {
   size = 32;
   textFont(PlayFont, size);
   text(Play, PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
+  //
+  fill(BackgroundColour);
+  fill(Cyan);
+  rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
+  if(mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<NextButtonY+NextButtonHeight) {
+    fill(Green);
+    rect(NextButtonX+NextButtonWidth*1/8, NextButtonY+NextButtonHeight*1/8, NextButtonWidth*1/2, NextButtonHeight*1/2);
+  } else {
+    fill(Cyan);
+  };
+  fill(Red);
+  textAlign(CENTER, CENTER);
+  size = 32;
+  textFont(NextFont, size);
+  text(Next, NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
+  //
+  fill(Cyan);
+  rect(RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
+  if(mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<RewindButtonY+RewindButtonHeight) {
+    fill(Green);
+    rect(RewindButtonX+RewindButtonWidth*1/7, RewindButtonY+RewindButtonHeight*1/7, RewindButtonWidth*3/4, RewindButtonHeight*3/4);
+  } else {
+    fill(Cyan);
+  };
+  fill(Red);
+  textAlign(CENTER, CENTER);
+  size = 32;
+  textFont(BackFont, size);
+  text(Back, RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
 } //End draw
 //
 void keyPressed() { //Listener
