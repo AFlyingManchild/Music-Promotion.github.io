@@ -48,6 +48,7 @@ String Play="Start";
 String Next="Next";
 String Back="Rewind";
 boolean WhiteMode=false;
+boolean lightMode=false, dayMode=false, nightMode=false;
 //
 void setup() {
   
@@ -261,7 +262,10 @@ void draw() {
 //
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
-  if (key=='W' || key=='w');
+  if (key=='W' || key=='w') {
+    lightMode = true;
+  } else {
+    lightMode = false;}
 } //End keyPressed
 //ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight
 //
