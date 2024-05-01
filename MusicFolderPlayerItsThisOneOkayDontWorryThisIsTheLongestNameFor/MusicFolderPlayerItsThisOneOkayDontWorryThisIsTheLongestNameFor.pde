@@ -198,7 +198,7 @@ void draw() {
   //
   //Exit button
   //fill(Purple);
-  //if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight ) fill(Yellow);
+  //if ( mouseX>X && mouseX<X+Width && mouseY>Y && mouseY<Y+Height ) fill(Yellow);
   fill(Purple);
   rect(ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
   if (mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight) {
