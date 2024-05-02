@@ -43,12 +43,21 @@ PFont ExitFont;
 PFont PlayFont;
 PFont NextFont;
 PFont BackFont;
+//
 String Exit="Exit";
 String Play="Start";
 String Next="Next";
 String Back="Rewind";
+//
+String ferret = "ferret";
+String backgroundImageName=ferret;
+String extensionJPEG = ".jpeg";
+String pathWay = "../images go to baby jail/";
+String Square = "happy lil trees/";
+//
 boolean WhiteMode=false;
-boolean lightMode=false, dayMode=false, nightMode=false;
+boolean lightMode=false;
+boolean dayMode=false, nightMode=false;
 //
 void setup() {
   
@@ -69,11 +78,11 @@ void setup() {
   println(displayInstructions);
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
-  String extension = ".mp3";
+  String extensionMP3 = ".mp3";
   String ExitButtonSound = "StrawSqueak";
   String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   //println(pathwaySoundEffects+ExitButtonSound+extension);
-  String path = sketchPath(pathwaySoundEffects + ExitButtonSound + extension); //absolute path
+  String path = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
   //println(path);
   soundEffects1 = minim.loadFile( path );
   //playList1 = minim.loadFile( path );
@@ -177,7 +186,7 @@ void setup() {
   rect(SettingsButtonX, SettingsButtonY, SettingsButtonWidth, SettingsButtonHeight);
   
   //Var population
-  DarkBackground = 0; //greyscale, 0 is the same as #000000, saves resources >v'
+  DarkBackground = 0; //greyscale, 0 is the same as #000000, saves resources >v' this is a wink btw
   WhiteBackground = 255;
   White = 255;
   Yellow = #FFFF00;
@@ -189,13 +198,16 @@ void setup() {
   { BackgroundColour = WhiteBackground; 
   ForegroundColour = #FFFFFF;}
   else { BackgroundColour = DarkBackground;
-  ForegroundColour = #FFFF00;}; //yellow uwu
+  ForegroundColour = #FFFF00;} //yellow uwu
   //
 } //End setup
 //
 void draw() {
   background(BackgroundColour); //greyscale uwu
   fill(ForegroundColour);
+  //if (lightMode==true) {
+  //  backgroundImageName = bike;
+    
   //
   //Exit button
   //fill(Purple);
@@ -215,7 +227,6 @@ void draw() {
   textFont(ExitFont, size);
   text(Exit, ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight);
   //
-  fill(BackgroundColour);
   fill(Cyan);
   rect(PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
   if(mouseX>PlayButtonX && mouseX<PlayButtonX+PlayButtonWidth && mouseY>PlayButtonY && mouseY<PlayButtonY+PlayButtonHeight) {
@@ -230,7 +241,6 @@ void draw() {
   textFont(PlayFont, size);
   text(Play, PlayButtonX, PlayButtonY, PlayButtonWidth, PlayButtonHeight);
   //
-  fill(BackgroundColour);
   fill(Cyan);
   rect(NextButtonX, NextButtonY, NextButtonWidth, NextButtonHeight);
   if(mouseX>NextButtonX && mouseX<NextButtonX+NextButtonWidth && mouseY>NextButtonY && mouseY<NextButtonY+NextButtonHeight) {
@@ -263,9 +273,12 @@ void draw() {
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
   if (key=='W' || key=='w') {
-    lightMode = true;
+    if (lightMode == false)
+    {lightMode = true;
   } else {
-    lightMode = false;}
+    lightMode = false;
+  }
+  }
 } //End keyPressed
 //ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight
 //

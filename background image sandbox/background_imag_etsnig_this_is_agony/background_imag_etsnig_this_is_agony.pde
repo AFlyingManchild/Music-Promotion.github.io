@@ -13,9 +13,9 @@ void setup () {
   BackgroundImageWidth = appWidth*1;
   BackgroundImageHeight = appHeight*1;
   //
-  String bike = "bike";
-  String backgroundImageName = bike;
-  String extension = ".jpg";
+  String ferret = "ferrt";
+  String backgroundImageName = ferret;
+  String extension = ".jpeg";
   String pathway = "../../../images go to baby jail/";
   String landscape_squares = "happy lil trees/";
   //String portrait = "Mona Lisa/";
