@@ -54,6 +54,7 @@ String backgroundImageName=ferret;
 String extensionJPEG = ".jpeg";
 String pathWay = "../images go to baby jail/";
 String Square = "happy lil trees/";
+String ImagePath = pathWay + Square + ferret + extensionJPEG;
 //
 boolean WhiteMode=false;
 boolean lightMode=false;
@@ -80,7 +81,7 @@ void setup() {
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   String extensionMP3 = ".mp3";
   String ExitButtonSound = "StrawSqueak";
-  String pathwaySoundEffects = ". ./THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
+  String pathwaySoundEffects = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   //println(pathwaySoundEffects+ExitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
   //println(path);
