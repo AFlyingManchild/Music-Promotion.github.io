@@ -2,13 +2,9 @@
 int appWidth, appHeight;
 float AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight;
 PImage AlbumCoverImage;
+//NOTE!!!! paths are LOCAL variables, NOT global!
 //
-String ImagePath = "../../images go to baby jail/";
-String ferret = "ferrt";
-String foregroundImageName = ferret;
-String JPEGextension = ".jpeg";
-String TheImageItself = "/happy lil trees/";
-String foregroundImagePath = ImagePath + TheImageItself + ferret + JPEGextension;
+String AlbumCoverImagePath;
 //
 void setup() {
   println("Display Width: ", displayWidth, "Display Height: ", displayHeight, "Width: ", width, "Height: ", height);
@@ -22,7 +18,12 @@ void setup() {
   AlbumCoverHeight = appHeight*50/100;
   //
   //Variable Population
-  AlbumCoverImage = loadImage(foregroundImagePath);
+  String ferret = "ferrt";
+  String JPEGextension = ".jpeg";
+  String ImagePath = "../../images go to baby jail/";
+  String TheImageItself = "/happy lil trees/";
+  AlbumCoverImagePath = ImagePath + TheImageItself + ferret + JPEGextension;
+  AlbumCoverImage = loadImage(AlbumCoverImagePath);
   //DIVs
   rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
 } //End setup
