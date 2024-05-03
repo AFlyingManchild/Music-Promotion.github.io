@@ -24,6 +24,13 @@ void setup() {
   String TheImageItself = "/happy lil trees/";
   AlbumCoverImagePath = ImagePath + TheImageItself + ferret + JPEGextension;
   AlbumCoverImage = loadImage(AlbumCoverImagePath);
+  //
+  //Image aspect ratio calculations
+  float miniAlbumCoverDimension = (AlbumCoverWidth < AlbumCoverHeight) ? AlbumCoverWidth : AlbumCoverHeight ;
+  int AlbumCoverImageWidthPixel = 800;
+  int AlbumCoverImageHeightPixel = 800;
+  float AlbumCoverAspectRatio = ;
+  float BIGAlbumCoverDimension = ; //Aspect ratio
   //DIVs
   rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
 } //End setup
