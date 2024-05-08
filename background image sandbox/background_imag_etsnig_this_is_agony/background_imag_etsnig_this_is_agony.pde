@@ -15,12 +15,12 @@ void setup () {
   //
   String ferret = "ferrt";
   String backgroundImageName = ferret;
-  String extension = ".jpeg";
+  String extensionJPEG = ".jpeg";
   String pathway = "../../../images go to baby jail/";
   String landscape_squares = "happy lil trees/";
   //String portrait = "Mona Lisa/";
   //String path = pathway + portrait + backgroundImageName + extension;
-  String path = pathway + landscape_squares + backgroundImageName + extension;
+  String path = pathway + landscape_squares + backgroundImageName + extensionJPEG;
   BackgroundImage = loadImage( path );
   //
   rect(BackgroundImageX, BackgroundImageY, BackgroundImageWidth, BackgroundImageHeight);

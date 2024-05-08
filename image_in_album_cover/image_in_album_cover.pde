@@ -21,16 +21,16 @@ void setup() {
   String ferret = "ferrt";
   String JPEGextension = ".jpeg";
   String ImagePath = "../../images go to baby jail/";
-  String TheImageItself = "/happy lil trees/";
-  AlbumCoverImagePath = ImagePath + TheImageItself + ferret + JPEGextension;
+  String FolderWithImages = "/happy lil trees/";
+  AlbumCoverImagePath = ImagePath + FolderWithImages + ferret + JPEGextension;
   AlbumCoverImage = loadImage(AlbumCoverImagePath);
   //
   //Image aspect ratio calculations
-  float miniAlbumCoverDimension = (AlbumCoverWidth < AlbumCoverHeight) ? AlbumCoverWidth : AlbumCoverHeight ;
-  int AlbumCoverImageWidthPixel = 800;
-  int AlbumCoverImageHeightPixel = 800;
-  float AlbumCoverAspectRatio = ;
-  float BIGAlbumCoverDimension = ; //Aspect ratio
+  //float miniAlbumCoverDimension = (AlbumCoverWidth < AlbumCoverHeight) ? AlbumCoverWidth : AlbumCoverHeight ;
+  //int AlbumCoverImageWidthPixel = 800;
+  //int AlbumCoverImageHeightPixel = 800;
+  //float AlbumCoverAspectRatio = ;
+  //float BIGAlbumCoverDimension = ; //Aspect ratio
   //DIVs
   rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
 } //End setup
