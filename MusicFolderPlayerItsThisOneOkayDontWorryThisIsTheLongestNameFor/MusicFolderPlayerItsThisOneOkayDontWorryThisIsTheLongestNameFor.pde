@@ -80,12 +80,15 @@ void setup() {
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   String extensionMP3 = ".mp3";
+  String songTimeOnce = "Final Girl - Jeremy Blake";
   String ExitButtonSound = "StrawSqueak";
   String pathwaySoundEffects = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
+  String songPathWayOnce = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Music/";
   //println(pathwaySoundEffects+ExitButtonSound+extension);
-  String path = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
+  String pathSoundEffect = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
+  String SongPath = sketchPath(
   //println(path);
-  soundEffects1 = minim.loadFile( path );
+  soundEffects1 = minim.loadFile( pathSoundEffect );
   //playList1 = minim.loadFile( path );
   //
   size = 32;
