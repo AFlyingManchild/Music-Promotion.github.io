@@ -12,9 +12,8 @@ loop: https://code.compartmental.net/minim/audioplayer_method_loop.html
 loop(0) seems best for sound effects
 */
 //Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
-Minim minim; //creates object to add all functions
+//
 AudioPlayer soundEffects1;
-AudioPlayer playList1; //creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
 //
 int appWidth, appHeight;
 int size;
@@ -86,9 +85,9 @@ void setup() {
   String songPathWayOnce = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Music/";
   //println(pathwaySoundEffects+ExitButtonSound+extension);
   String pathSoundEffect = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
-  String SongPath = sketchPath(
+  String SongPath = sketchPath(songPathWayOnce + songTimeOnce + extensionMP3);
   //println(path);
-  soundEffects1 = minim.loadFile( pathSoundEffect );
+  //soundEffects1 = minim.loadFile( pathSoundEffect );
   //playList1 = minim.loadFile( path );
   //
   size = 32;
@@ -207,6 +206,18 @@ void setup() {
 } //End setup
 //
 void draw() {
+  println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
+  //
+  /*Note: For Loop Feature
+   Easter Egg: program time for number of song loops
+   Alternate to timer for music player, times to the end of a song
+   if ( playList[currentSong].isLooping() && playList[currentSong].loopCount()!=-1 ) println("There are", playList[currentSong].loopCount(), "loops left.");
+   if ( playList[currentSong].isLooping() && playList[currentSong].loopCount()==-1 ) println("Looping Infinitely");
+  */
+  //
+  if (!playList[currentSong].isPlaying() ) println("Stop checking your sound, there's just no song playing ya fool");
+  if (playList[currentSong].isPlaying && !playList[currentSong].isLooping() ); println("Playing Song once");
+  //
   background(BackgroundColour); //greyscale uwu
   fill(ForegroundColour);
   //if (lightMode==true) {
