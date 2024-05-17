@@ -1,8 +1,6 @@
 void soundEffect_1() {
-  //int loopOnce = 0;
   int timeForSoundEffects1 = 2250; //parameter in milliseconds
-  //soundEffects1.loop(loopOnce);
-  delay(timeForSoundEffects1); //in milliseconds
+  soundEffects1.loop(1);
+  delay(timeForSoundEffects1);
   exit();
-}
- //End soundEffect_1
+} //End soundEffect_1
