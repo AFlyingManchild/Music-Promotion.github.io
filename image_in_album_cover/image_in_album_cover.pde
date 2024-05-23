@@ -1,6 +1,7 @@
 //Global variables
 int appWidth, appHeight;
 float AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight;
+float AlbumCoverWidthAdjusted, AlbumCoverHeightAdjusted;
 PImage AlbumCoverImage;
 //NOTE!!!! paths are LOCAL variables, NOT global!
 //
@@ -26,17 +27,25 @@ void setup() {
   AlbumCoverImage = loadImage(AlbumCoverImagePath);
   //
   //Image aspect ratio calculations
-  //float miniAlbumCoverDimension = (AlbumCoverWidth < AlbumCoverHeight) ? AlbumCoverWidth : AlbumCoverHeight ;
-  //int AlbumCoverImageWidthPixel = 800;
-  //int AlbumCoverImageHeightPixel = 800;
-  //float AlbumCoverAspectRatio = ;
-  //float BIGAlbumCoverDimension = ; //Aspect ratio
+  float miniAlbumCoverDimension = (AlbumCoverWidth < AlbumCoverHeight) ? AlbumCoverWidth : AlbumCoverHeight ;
+  float AlbumCoverImageWidthPixel = 800.0; //originally int instead of float, ratio will be decimal
+  float AlbumCoverImageHeightPixel = 800.0; //WARNING: MUST avoid truncation to ZERO value
+  float AlbumCoverAspectRatio = AlbumCoverImageWidthPixel/AlbumCoverImageHeightPixel;
+  float BIGAlbumCoverDimension = miniAlbumCoverDimension*AlbumCoverAspectRatio; //Aspect ratio
+  if (AlbumCoverWidth < BIGAlbumCoverDimension) {
+    while (AlbumCoverWidth < BIGAlbumCoverDimension) {
+      BIGAlbumCoverDimension -= 1;
+      miniAlbumCoverDimension -= 1;
+    }
+  }
+  AlbumCoverWidthAdjusted = BIGAlbumCoverDimension;
+  AlbumCoverHeightAdjusted = miniAlbumCoverDimension;
   //DIVs
   rect(AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
 } //End setup
 //
 void draw() {
-  image(AlbumCoverImage, AlbumCoverX, AlbumCoverY, AlbumCoverWidth, AlbumCoverHeight);
+  image(AlbumCoverImage, AlbumCoverX, AlbumCoverY, AlbumCoverWidthAdjusted, AlbumCoverHeightAdjusted);
 } //End draw
 //
 void mousePressed() {
