@@ -14,10 +14,11 @@ loop(0) seems best for sound effects
 //Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
 //
 AudioPlayer soundEffects1;
-AudioPlayer MusicChoice1;
+AudioPlayer playList1;
 //
 int appWidth, appHeight;
 int size;
+int skip = 5000;
 //
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
@@ -33,7 +34,7 @@ String Exit="Exit";
 String Play="Start";
 String Next="Next";
 String Back="Rewind";
-String LoopOnce="Loop Once";
+String LoopOne="Loop Once";
 //
 String ferret = "ferret";
 String backgroundImageName=ferret;
@@ -75,7 +76,7 @@ void setup() {
   String SongPath = sketchPath(songPathWayOnce + songTimeOnce + extensionMP3);
   //println(path);
   soundEffects1 = minim.loadFile( pathSoundEffect );
-  MusicChoice1 = minim.loadFile( SongPath );
+  playList1 = minim.loadFile( SongPath );
   //
   size = 32;
   ExitFont = createFont("ComicSansMS", size);
@@ -172,6 +173,8 @@ void setup() {
 //
 void draw() {
   //println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
+  playList1.loop(0); //ERR0R: only plays beginning of song before starting over
+  //println("inspecting SKIIP:", skip);
   //
   /*Note: For Loop Feature
    Easter Egg: program time for number of song loops
@@ -251,6 +254,8 @@ void draw() {
 } //End draw
 //
 void keyPressed() { //Listener
+//references, might need to be in draw();
+ //int skip = 5000; //local but might need to be global so prep to move, local saves resources so better :3
   if (key=='Q' || key=='q') exit();
   if (key=='W' || key=='w') {
     if (lightMode == false)
@@ -259,8 +264,21 @@ void keyPressed() { //Listener
     lightMode = false;
   }
   }
+  //int skip = 5000; //basic preference
+  if( key=='G' || key=='g') skip = 5000;
+  if( key=='H' || key=='h') skip = 10000;
+  if( key=='H' || key=='h') {
+    if (skip == 5000) {
+      skip = 10000;
+    } else { 
+      skip = 5000;
+    }
+  }
+  if( key=='F' || key=='f' ) playList[0].skip(skip) ; //SKIP forward 1 second (1000 milli)
+  if( key=='R' || key=='r' ) playList[0].skip(-skip) ; //REVERSE 1 second (1000 milli)
+  //hey did you know that the reason we use milliseconds is because theres a piece of quartz in ur computer, and if you run electricity thru it, it oscillates at exactly one millisecond, perfectly.
+  //neat tidbit :)
 } //End keyPressed
-//ExitButtonX, ExitButtonY, ExitButtonWidth, ExitButtonHeight
 //
 void mousePressed() { //Listener 2: the Venting Strikes Back
   if ( mouseX>ExitButtonX && mouseX<ExitButtonX+ExitButtonWidth && mouseY>ExitButtonY && mouseY<ExitButtonY+ExitButtonHeight );
