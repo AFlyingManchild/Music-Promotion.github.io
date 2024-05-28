@@ -15,6 +15,7 @@ loop(0) seems best for sound effects
 //
 AudioPlayer soundEffects1;
 AudioPlayer playList1;
+AudioMetaData[] playListMetaData;
 //
 int appWidth, appHeight;
 int size;
@@ -46,6 +47,9 @@ String ImagePath = pathWay + Square + ferret + extensionJPEG;
 boolean WhiteMode=false;
 boolean lightMode=false;
 boolean dayMode=false, nightMode=false;
+boolean looping=false;
+//
+int currentSong = 0;
 //
 void setup() {
   
@@ -77,7 +81,9 @@ void setup() {
   //println(path);
   soundEffects1 = minim.loadFile( pathSoundEffect );
   playList1 = minim.loadFile( SongPath );
+  playListMetaData[0] = playList[0].getMetaData();
   //
+  //note: music starts before canvas, which is why hteres a music player lol
   size = 32;
   ExitFont = createFont("ComicSansMS", size);
   PlayFont = createFont("Arial", size);
@@ -173,18 +179,34 @@ void setup() {
 //
 void draw() {
   //println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
-  playList1.loop(0); //ERR0R: only plays beginning of song before starting over
-  //println("inspecting SKIIP:", skip);
+  //playList1.loop(0); //ERR0R: only plays beginning of song before starting over
+  //println("inspecting SKIP:", skip);
   //
-  /*Note: For Loop Feature
-   Easter Egg: program time for number of song loops
-   Alternate to timer for music player, times to the end of a song
+  println( "Song Position", playList[currentSong].position(), "Song length", playList[currentSong].length() );
+  //Note: For Loop Feature
+   //Easter Egg: program time for number of song loops
+   //Alternate to timer for music player, times to the end of a song
    if ( playList[currentSong].isLooping() && playList[currentSong].loopCount()!=-1 ) println("There are", playList[currentSong].loopCount(), "loops left.");
    if ( playList[currentSong].isLooping() && playList[currentSong].loopCount()==-1 ) println("Looping Infinitely");
-  */
+  
   //
-  //if (!playList[currentSong].isPlaying() ) println("Stop checking your sound, there's just no song playing ya fool");
-  //if (playList[currentSong].isPlaying() && !playList[currentSong].isLooping() ); println("Playing Song once");
+  if (!playList[currentSong].isPlaying() ) println("Stop checking your sound, there's just no song playing ya fool");
+  if (playList[currentSong].isPlaying() && !playList[currentSong].isLooping() ); println("Playing once");
+  //
+  if(playList[currentSong].isPlaying() ) {
+    if(!playList[currentSong].isLooping() && looping==true) looping=false; //protects .loop from .rewind() as a STOP loop
+  } else if ( looping == false && !playList[currentSong].isPlaying() && playList[currentSong].length() < 180000 ) {
+      playList[currentSong].rewind(); // .isPlaying(); + .rewind = STOP
+  } else {
+    /* future code uwu
+    currentSong = currentSong+1 //currentSong++; currentSong+=1
+    playList[currentSong].play();
+    */
+  }
+  //MUTE fix
+  if (playList[currentSong].isMuted() ) println("Currently Muted"); //end MUTE fix
+  //
+    // .pause in keyPressed() is actually STOP
   //
   background(BackgroundColour); //greyscale uwu
   fill(ForegroundColour);
@@ -251,6 +273,8 @@ void draw() {
   size = 32;
   textFont(BackFont, size);
   text(Back, RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
+  //
+  println("String variable is:", playListMetaData[0].title() );
 } //End draw
 //
 void keyPressed() { //Listener
@@ -276,6 +300,35 @@ void keyPressed() { //Listener
   }
   if( key=='F' || key=='f' ) playList[0].skip(skip) ; //SKIP forward 1 second (1000 milli)
   if( key=='R' || key=='r' ) playList[0].skip(-skip) ; //REVERSE 1 second (1000 milli)
+  if( key=='P' || key=='p' ) {
+    if(playList[currentSong].isPlaying() ) {
+      playList[currentSong].pause();
+    } else {
+      playList[currentSong].play();
+    }
+  } //end play pause button
+  if( key=='L' || key=='l' ) {
+    playList[currentSong].loop(1);
+    looping=true;
+  } //end looping once
+  if( key=='I' || key=='i') {
+    playList[currentSong].loop();
+    looping=true;
+  } //end looping infinitely
+  if( key=='S' || key=='s') {
+    playList[currentSong].pause();
+    playList[currentSong].rewind(); //affects loop times
+    looping=false;
+  } //end stop
+  if(key=='M' || key=='m') { //mute button
+    if(playList[currentSong].isMuted() ) {
+      //note: mute individual sonsgs if multiple are palying
+      //CAUTION potential fatal error :3c
+      playList[currentSong].unmute();
+    } else {
+      playList[currentSong].mute();
+    }
+  } //end mute
   //hey did you know that the reason we use milliseconds is because theres a piece of quartz in ur computer, and if you run electricity thru it, it oscillates at exactly one millisecond, perfectly.
   //neat tidbit :)
 } //End keyPressed
