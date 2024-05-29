@@ -15,11 +15,11 @@ loop(0) seems best for sound effects
 //
 AudioPlayer soundEffects1;
 AudioPlayer playList1;
-AudioMetaData[] playListMetaData;
 //
 int appWidth, appHeight;
 int size;
 int skip = 5000;
+int currentSong = 0;
 //
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
@@ -47,9 +47,9 @@ String ImagePath = pathWay + Square + ferret + extensionJPEG;
 boolean WhiteMode=false;
 boolean lightMode=false;
 boolean dayMode=false, nightMode=false;
-boolean looping=false;
 //
-int currentSong = 0;
+boolean looping=false;
+// prevents .rewind from being inapproprietly accessed between .play(), .loop(1) and .loop()
 //
 void setup() {
   
@@ -81,11 +81,11 @@ void setup() {
   //println(path);
   soundEffects1 = minim.loadFile( pathSoundEffect );
   playList1 = minim.loadFile( SongPath );
-  playListMetaData[0] = playList[0].getMetaData();
+  //playListMetaData[0] = playList[0].getMetaData();
   //
   //note: music starts before canvas, which is why hteres a music player lol
   size = 32;
-  ExitFont = createFont("ComicSansMS", size);
+  ExitFont = createFont("Century", size);
   PlayFont = createFont("Arial", size);
   NextFont = createFont("Onyx", size);
   BackFont = createFont("Onyx", size);
@@ -212,7 +212,7 @@ void draw() {
   fill(ForegroundColour);
   //if (lightMode==true) {
   //  backgroundImageName = bike;
-    
+  println ("String variable is:", playListMetaData[0].title() );
   //
   //Exit button
   //fill(Purple);
@@ -274,7 +274,6 @@ void draw() {
   textFont(BackFont, size);
   text(Back, RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
   //
-  println("String variable is:", playListMetaData[0].title() );
 } //End draw
 //
 void keyPressed() { //Listener
@@ -329,7 +328,7 @@ void keyPressed() { //Listener
       playList[currentSong].mute();
     }
   } //end mute
-  //hey did you know that the reason we use milliseconds is because theres a piece of quartz in ur computer, and if you run electricity thru it, it oscillates at exactly one millisecond, perfectly.
+  //hey did you know that the reason we use milliseconds is because theres a piece of quartz in ur computer, and if you run electricity thru it, it oscillates at exactly one millisecond.
   //neat tidbit :)
 } //End keyPressed
 //
