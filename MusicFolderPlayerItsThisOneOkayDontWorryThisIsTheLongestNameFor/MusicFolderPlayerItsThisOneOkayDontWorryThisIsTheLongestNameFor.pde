@@ -178,11 +178,10 @@ void setup() {
 } //End setup
 //
 void draw() {
-  //println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
+  println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
   //playList1.loop(0); //ERR0R: only plays beginning of song before starting over
   //println("inspecting SKIP:", skip);
   //
-  println( "Song Position", playList[currentSong].position(), "Song length", playList[currentSong].length() );
   //Note: For Loop Feature
    //Easter Egg: program time for number of song loops
    //Alternate to timer for music player, times to the end of a song
