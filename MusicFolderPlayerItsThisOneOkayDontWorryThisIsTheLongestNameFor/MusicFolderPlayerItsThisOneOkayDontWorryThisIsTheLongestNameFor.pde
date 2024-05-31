@@ -13,13 +13,20 @@ loop(0) seems best for sound effects
 */
 //Global Variables - variables are what you put into code, acting as placeholders to help visualize for you and to help the computer run things.
 //
+Minim minim; //creates object to add all functions
+int numberSoundEffects = 4;
+int numberMusicSongs = 8;
+AudioPlayer[] playList = new AudioPlayer[ numberMusicSongs ]; //creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
+AudioPlayer[] soundEffects = new AudioPlayer[ numberSoundEffects ];
+AudioMetaData[] playListMetaData = new AudioMetaData [numberMusicSongs];
+int currentSong = 0;
+//
 AudioPlayer soundEffects1;
 AudioPlayer playList1;
 //
 int appWidth, appHeight;
 int size;
 int skip = 5000;
-int currentSong = 0;
 //
 color BackgroundColour, DarkBackground, WhiteBackground;
 color ForegroundColour;
@@ -71,7 +78,7 @@ void setup() {
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   String extensionMP3 = ".mp3";
-  String songTimeOnce = "Final Girl - Jeremy Blake";
+  String songTimeOnce = "MATERIAWLGUUURL";
   String ExitButtonSound = "StrawSqueak";
   String pathwaySoundEffects = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   String songPathWayOnce = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Music/";
@@ -178,7 +185,8 @@ void setup() {
 } //End setup
 //
 void draw() {
-  println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
+  // im ending this shit im done man it  so fucking frustrating its been 3 days amn
+ println( "Song Position", playList[currentSong].position(), "Song Length", playList[currentSong].length() );
   //playList1.loop(0); //ERR0R: only plays beginning of song before starting over
   //println("inspecting SKIP:", skip);
   //
@@ -197,10 +205,10 @@ void draw() {
   } else if ( looping == false && !playList[currentSong].isPlaying() && playList[currentSong].length() < 180000 ) {
       playList[currentSong].rewind(); // .isPlaying(); + .rewind = STOP
   } else {
-    /* future code uwu
-    currentSong = currentSong+1 //currentSong++; currentSong+=1
-    playList[currentSong].play();
-    */
+    // future code uwu
+    //currentSong = currentSong+1 //currentSong++; currentSong+=1
+    //playList[currentSong].play();
+    
   }
   //MUTE fix
   if (playList[currentSong].isMuted() ) println("Currently Muted"); //end MUTE fix
@@ -273,6 +281,7 @@ void draw() {
   textFont(BackFont, size);
   text(Back, RewindButtonX, RewindButtonY, RewindButtonWidth, RewindButtonHeight);
   //
+  
 } //End draw
 //
 void keyPressed() { //Listener
