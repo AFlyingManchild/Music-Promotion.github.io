@@ -16,10 +16,12 @@ loop(0) seems best for sound effects
 Minim minim; //creates object to add all functions
 int numberSoundEffects = 4;
 int numberMusicSongs = 8;
+String[] filePathNameMusic = new String[numberMusicSongs];
+String[] filePathNameSoundEffects = new String[numberSoundEffects];
 AudioPlayer[] playList = new AudioPlayer[ numberMusicSongs ]; //creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
 AudioPlayer[] soundEffects = new AudioPlayer[ numberSoundEffects ];
 AudioMetaData[] playListMetaData = new AudioMetaData [numberMusicSongs];
-int currentSong = 0;
+int currentSong = numberMusicSongs - numberMusicSongs;
 //
 AudioPlayer soundEffects1;
 AudioPlayer playList1;
@@ -78,13 +80,15 @@ void setup() {
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   String extensionMP3 = ".mp3";
-  String songTimeOnce = "MATERIAWLGUUURL";
+  String Finalist = "MATERIAWLGUUURL";
+  String nurture = "nature";
+  String MyLittlePony = "horseDewormer";
   String ExitButtonSound = "StrawSqueak";
   String pathwaySoundEffects = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
   String songPathWayOnce = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Music/";
   //println(pathwaySoundEffects+ExitButtonSound+extension);
   String pathSoundEffect = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
-  String SongPath = sketchPath(songPathWayOnce + songTimeOnce + extensionMP3);
+  String SongPath = sketchPath(songPathWayOnce + Finalist + extensionMP3);
   //println(path);
   soundEffects1 = minim.loadFile( pathSoundEffect );
   playList1 = minim.loadFile( SongPath );
@@ -336,6 +340,14 @@ void keyPressed() { //Listener
       playList[currentSong].mute();
     }
   } //end mute
+  if (key=='A'||key=='a') {
+    currentSong = int ( random( numberMusicSongs-numberMusicSongs, numberMusicSongs) );
+    println("Current song, random number:", currentSong);
+    playList.pause();
+    playList.rewind();
+    playList = minim.loadFile(filePathNameMusic[currentSong]);
+    playList.play();
+  }//end randomizer
   //hey did you know that the reason we use milliseconds is because theres a piece of quartz in ur computer, and if you run electricity thru it, it oscillates at exactly one millisecond.
   //neat tidbit :)
 } //End keyPressed
