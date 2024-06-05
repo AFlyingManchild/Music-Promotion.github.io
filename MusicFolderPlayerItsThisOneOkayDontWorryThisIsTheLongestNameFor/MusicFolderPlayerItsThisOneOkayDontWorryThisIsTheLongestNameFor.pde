@@ -18,13 +18,12 @@ int numberSoundEffects = 4;
 int numberMusicSongs = 8;
 String[] filePathNameMusic = new String[numberMusicSongs];
 String[] filePathNameSoundEffects = new String[numberSoundEffects];
-AudioPlayer[] playList = new AudioPlayer[ numberMusicSongs ]; //creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
-AudioPlayer[] soundEffects = new AudioPlayer[ numberSoundEffects ];
+//creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
 AudioMetaData[] playListMetaData = new AudioMetaData [numberMusicSongs];
 int currentSong = numberMusicSongs - numberMusicSongs;
 //
-AudioPlayer soundEffects1;
-AudioPlayer playList1;
+AudioPlayer soundEffects;
+AudioPlayer playList;
 //
 int appWidth, appHeight;
 int size;
@@ -90,8 +89,8 @@ void setup() {
   String pathSoundEffect = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
   String SongPath = sketchPath(songPathWayOnce + Finalist + extensionMP3);
   //println(path);
-  soundEffects1 = minim.loadFile( pathSoundEffect );
-  playList1 = minim.loadFile( SongPath );
+  soundEffects = minim.loadFile( pathSoundEffect );
+  playList = minim.loadFile( SongPath );
   //playListMetaData[0] = playList[0].getMetaData();
   //
   //note: music starts before canvas, which is why hteres a music player lol
@@ -309,7 +308,11 @@ void keyPressed() { //Listener
       skip = 5000;
     }
   }
-  if( key=='F' || key=='f' ) playList[0].skip(skip) ; //SKIP forward 1 second (1000 milli)
+  if( key=='F' || key=='f' ) { //SKIP forward 1 second (1000 milli)
+  if ( playList.position()>=10000);
+  if ( playList.position()>=10000 && playList.position>playList.length()*0.75) playList.skip( skip );
+  if ( playList.position()>playList.length()*0.75);
+  }
   if( key=='R' || key=='r' ) playList[0].skip(-skip) ; //REVERSE 1 second (1000 milli)
   if( key=='P' || key=='p' ) {
     if(playList[currentSong].isPlaying() ) {
@@ -341,10 +344,21 @@ void keyPressed() { //Listener
     }
   } //end mute
   if (key=='A'||key=='a') {
+    /*next:
+    -pause current song, rewind, currentSong++, play song
+    -ERROR: ArrayListOutOfBounds
+    -TBA
+    */
     currentSong = int ( random( numberMusicSongs-numberMusicSongs, numberMusicSongs) );
-    println("Current song, random number:", currentSong);
+    println("Current song number is:", currentSong);
     playList.pause();
     playList.rewind();
+    if(currentSong>=numberMusicSongs) {
+      currentSong = 0;
+    } else {
+      currentSong++;
+    }
+    println("current song swapped to:", currentSong);
     playList = minim.loadFile(filePathNameMusic[currentSong]);
     playList.play();
   }//end randomizer
