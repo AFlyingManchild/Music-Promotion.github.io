@@ -18,12 +18,12 @@ int numberSoundEffects = 4;
 int numberMusicSongs = 8;
 String[] filePathNameMusic = new String[numberMusicSongs];
 String[] filePathNameSoundEffects = new String[numberSoundEffects];
+AudioPlayer playList;
+AudioPlayer soundEffects;
 //creates "playList" variable holding extensions WAV, AIFF, AU, SND and MP3
 AudioMetaData[] playListMetaData = new AudioMetaData [numberMusicSongs];
 int currentSong = numberMusicSongs - numberMusicSongs;
 //
-AudioPlayer soundEffects;
-AudioPlayer playList;
 //
 int appWidth, appHeight;
 int size;
@@ -84,10 +84,14 @@ void setup() {
   String MyLittlePony = "horseDewormer";
   String ExitButtonSound = "StrawSqueak";
   String pathwaySoundEffects = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/SoundFX/"; //Relative Pathway
-  String songPathWayOnce = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Music/";
+  String songPathWay = "../THEHILLSAREALIVEWITHTHESOUNDOFMUUUUSSIIIIIIIICCCC/Music/";
   //println(pathwaySoundEffects+ExitButtonSound+extension);
   String pathSoundEffect = sketchPath(pathwaySoundEffects + ExitButtonSound + extensionMP3); //absolute path
-  String SongPath = sketchPath(songPathWayOnce + Finalist + extensionMP3);
+  String SongPath = sketchPath(songPathWay + Finalist + extensionMP3);
+  //
+  filePathNameMusic[currentSong+=1] = sketchPath(songPathWay + MyLittlePony + extensionMP3);
+  //
+  filePathNameMusic[currentSong+=1] = sketchPath(songPathWay + nurture + extensionMP3);
   //println(path);
   soundEffects = minim.loadFile( pathSoundEffect );
   playList = minim.loadFile( SongPath );
@@ -309,9 +313,9 @@ void keyPressed() { //Listener
     }
   }
   if( key=='F' || key=='f' ) { //SKIP forward 1 second (1000 milli)
-  if ( playList.position()>=10000);
-  if ( playList.position()>=10000 && playList.position>playList.length()*0.75) playList.skip( skip );
-  if ( playList.position()>playList.length()*0.75);
+  //if ( playList.position()>=10000);
+  //if ( playList.position()>=10000 && playList.position>playList.length()*0.75) playList.skip( skip );
+  //if ( playList.position()>playList.length()*0.75);
   }
   if( key=='R' || key=='r' ) playList[0].skip(-skip) ; //REVERSE 1 second (1000 milli)
   if( key=='P' || key=='p' ) {
