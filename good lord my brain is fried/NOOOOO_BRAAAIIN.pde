@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 //
 //global
 Minim minim;
-int numberMusicSongs = 3;
+int numberMusicSongs = 4;
 int numberSoundEffects = 1;
 String[] filePathNameMusic = new String[numberMusicSongs];
 String[] filePathNameSoundEffects = new String[numberSoundEffects];
@@ -35,19 +35,11 @@ void setup() {
   filePathNameMusic[currentSong+=1] = pathwayMusic + iroh + MP3extension;
   //
   currentSong = numberMusicSongs - numberMusicSongs;
-  playList = minim.loadFile( filePathNameMusic[currentSong] );
+  //
 }//end setup
 //
 void draw() {
-  if (playList.isPlaying() ) {
-    if (!playList.isLooping() && looping==true) looping=false;
-  } else if ( looping==false && !playList.isPlaying() && playList.length() > 180000 ) {
-    playList.rewind();
-  } else if ( looping==false && !playList.isPlaying() && (playList.position() > playList.length()*0.75 ) ) {
-    playList.rewind();
-  } else {
-    //
-  }
+  
 }//end draw
 //
 void keyPressed() {
