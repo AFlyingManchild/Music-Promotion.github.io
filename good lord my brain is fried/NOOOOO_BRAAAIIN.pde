@@ -36,10 +36,14 @@ void setup() {
   //
   currentSong = numberMusicSongs - numberMusicSongs;
   //
+  println("Current Song, Random Number:", int ( random(0,4) ) );
+  println(currentSong, filePathNameMusic[currentSong]);
+  //playList = minim.loadFile(filePathNameMusic[currentSong]);
+  //playList.loop(0);
 }//end setup
 //
 void draw() {
-  
+  println("Current Song, Random Number:", int ( random(0,4) ) );
 }//end draw
 //
 void keyPressed() {
